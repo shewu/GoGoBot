@@ -14,8 +14,15 @@ def asynchronus(fun, *args, **keyword):
 	return thread
 	
 # Arduino is currently contained in startscript.py
+Left=-1
+Right=1
 class Arduino:
-    pass
+    def __init__(self, dev, baud=9600):
+        return
+    def send(head, bytes):
+        return
+    def motor(side, speed):
+        return
 
 class Timer(Thread):
 	# lets users run events relative to each other
@@ -94,8 +101,22 @@ def distance(IR):
     pass
 # ---------------------
 
+# internal functions - user will not need to use these functions directly
+# ---------------------
+
+# cycles through usb drivers till arduino is found
+def _find_arduino(dev = '/dev/ttyUSB',start=0,stop=2):
+    for i in range(start,stop+1):
+        try:
+            a = Arduino(dev+str(i))
+            head,body = a.send(INIT, 0)
+            # INIT not implimented yet
+            # should return a sequence that is unique to the gogobot arduino program
+# ---------------------
+
 def setup():
 	# define classes and functions
+	arduino = Arduino()
 	lcd = LCD()
 	terminal = sys.stdout
 	sys.stdout=lcd   # redirect standard output to the lcd through the class method write(text)
