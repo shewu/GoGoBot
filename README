@@ -7,4 +7,37 @@ Hardware Requirements:
     - 4 banebots motors and wheels
     - 6 SHARP IR rangefinders
     - USB stick with proper GoGoBot image installed
-    - 
+    
+Included functions:
+
+thread asynchronus(fun, *args, **keyword):
+	custom asynchronous function that returns a thread
+
+void go(speed, angle = 0):
+	go at <angle> at <speed>
+
+void stop():
+	stops vehicle motion
+
+void gofor(timems, speed):
+	go at <speed> for <timems> duration
+
+void light(state, time):
+	sets the arduino LED to <state> for <time> duration
+
+void blink(time):
+	blinks arduino light at interval <time>
+
+void display(text):
+	writes <text> to the LCD
+
+void delayRun(timems, function, *args):
+	runs <function> with <args> after <timems> duration
+
+float getDirection():
+	gets direction from compass in degrees as a float
+
+float getDistance(IR):
+	gets distance between GoGoBot and object from the <IR>th IR sensor in cm as a float
+
+
