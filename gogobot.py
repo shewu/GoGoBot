@@ -12,6 +12,10 @@ def asynchronus(fun, *args, **keyword):
 		thread.start()
 
 	return thread
+	
+# Arduino is currently contained in startscript.py
+class Arduino:
+    pass
 
 class Timer(Thread):
 	# lets users run events relative to each other
@@ -67,6 +71,28 @@ class LCD:
 	def write(self, text):
 		# outputs `text' to lsd
 		return
+		
+# basic user functions - easy to use functions for beginners
+# ---------------------
+def go(speed,angle=0):
+    pass
+def stop():
+    pass
+def gofor(timems,speed):
+    pass
+def turn(angle):
+    pass
+# will call 'function' with the arguments in 'args' after 'timems' miliseconds
+def timed(timems,function,*args):
+    pass
+# returns a float in degrees
+def compass():
+    pass
+# returns a float distance from any IR sensor in cm
+# 'IR' is the sensor pin (or id number)
+def distance(IR):
+    pass
+# ---------------------
 
 def setup():
 	# define classes and functions
