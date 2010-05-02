@@ -108,15 +108,20 @@ def distance(IR):
 def _find_arduino(dev = '/dev/ttyUSB',start=0,stop=2):
     for i in range(start,stop+1):
         try:
-            a = Arduino(dev+str(i))
+            serial = dev+str(i)
+            a = Arduino(serial)
             head,body = a.send(INIT, 0)
             # INIT not implimented yet
             # should return a sequence that is unique to the gogobot arduino program
+        except:
+            pass
+        else:
+            return serial
 # ---------------------
 
 def setup():
 	# define classes and functions
-	arduino = Arduino()
+	arduino = Arduino(_find_arduino())
 	lcd = LCD()
 	terminal = sys.stdout
 	sys.stdout=lcd   # redirect standard output to the lcd through the class method write(text)
