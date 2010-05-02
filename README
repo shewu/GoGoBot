@@ -1,0 +1,10 @@
+Hardware Requirements:
+    - MiniITX motherboard
+    - picoLCD display
+    - Arduino Mega
+    - HMC6352 compass from Liquidware
+    - 2 banebots speedcontrollers
+    - 4 banebots motors and wheels
+    - 6 SHARP IR rangefinders
+    - USB stick with proper GoGoBot image installed
+    - 
