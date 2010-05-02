@@ -1,5 +1,6 @@
 import math
 import time
+import sys
 
 from time import sleep, time
 from threading import Thread
@@ -55,26 +56,28 @@ class LCD:
 	def __init__(self):
 		return
 
-	def output(self, text):
+	def write(self, text):
 		# outputs `text' to lsd
 		return
 
 def setup():
 	# define classes and functions
 	lcd = LCD()
+	terminal = sys.stdout
+	sys.stdout=lcd   # redirect standard output to the lcd through the class method write(text)
 
 	try:
 		fin = open("user.gg", "r")
 		data = fin.read()
 		fin.close()
 	except:
-		lcd.output("File \"user.gg\" not found. Balls!")
+		print "File \"user.gg\" not found. Balls!"
 		return 1
 
 	try:
 		exec(data)
 	except Exception:
-		lcd.output(Exception)
+		print Exception
 		return 1
 	return 0
 
