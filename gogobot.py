@@ -1,49 +1,49 @@
 import math
 import time
 
-from time import sleep
+from time import sleep, time
 from threading import Thread
 
-class Async(Thread):
-	def __init__(self, fun, *args):
+def asynchronus(fun, *args, **keyword):
+	# custom async fn
+	thread = Thread(None, fun, None, args)
+	if "autorun" in keyword or len(keyword) == 0:
+		thread.start()
+
+	return thread
+
+class Timer(Thread):
+	# lets users run events relative to each other
+	def __init__(self):
+		self.queue = {}
 		Thread.__init__(self)
-		self.fun = fun
-		self.args = args
-		self.halt = False
-		return
-	
-	def run():
-		self.fun(*self.args)
-		return
-	
-	def stop():
 		return
 
-def asynchronus(fun, *args):
-	# custom async fn
-	return
+	def append(self, reltime, fun, *args):
+		self.queue[time()+reltime, fun, *args]
+		return
 
 class Go:
 	def __init__(self):
 		return
 
-	def move():
-		# move forward one unit at default speed
+	def move(self):
+		# move forward one second at default speed
 		return
 
-	def move(dir):
-		# move in <dir> one unit at default speed
+	def move(self, dir):
+		# move in <dir> one second at default speed
 		return
 	
-	def move(dir, speed):
-		# move in <dir> one unit at <speed> speed
+	def move(self, dir, speed):
+		# move in <dir> one second at <speed> speed
 		return
 	
-	def move(dir, dist):
+	def move(self, dir, dist):
 		# move in <dir> <dist> at default speed
 		return
 	
-	def move(dir, speed, dist):
+	def move(self, dir, speed, dist):
 		# move in <dir> <dist> at <speed> speed
 		return
 
@@ -55,7 +55,7 @@ class LCD:
 	def __init__(self):
 		return
 
-	def output(text):
+	def output(self, text):
 		# outputs `text' to lsd
 		return
 
