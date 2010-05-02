@@ -16,12 +16,20 @@ def asynchronus(fun, *args, **keyword):
 class Timer(Thread):
 	# lets users run events relative to each other
 	def __init__(self):
-		self.queue = {}
+		self.queue = {}    # change queue into a self sorting data struct
 		Thread.__init__(self)
 		return
+		
+	def run(self):
+	    while 1:
+	        t = time()
+	        for event,(function,args) in self.queue:
+	            if event<=t:
+	                asynchronus(function,*args)
+                del self.queue[event]
 
 	def append(self, reltime, fun, *args):
-		self.queue[time()+reltime, fun, *args]
+		self.queue[time()+reltime]=(fun, *args)
 		return
 
 class Go:
