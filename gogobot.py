@@ -42,70 +42,58 @@ class Timer(Thread):
 	def append(self, reltime, fun, *args):
 		self.queue[time()+reltime]=(fun, *args)
 		return
-
-class Go:
-	def __init__(self):
-		return
-
-	def move(self):
-		# move forward one second at default speed
-		return
-
-	def move(self, dir):
-		# move in <dir> one second at default speed
-		return
 	
-	def move(self, dir, speed):
-		# move in <dir> one second at <speed> speed
-		return
-	
-	def move(self, dir, dist):
-		# move in <dir> <dist> at default speed
-		return
-	
-	def move(self, dir, speed, dist):
-		# move in <dir> <dist> at <speed> speed
-		return
-
-class Blink:
-	def __init__(self):
-		return
-
-class LCD:
-	def __init__(self):
-		return
-
-	def write(self, text):
-		# outputs `text' to lsd
-		return
-		
 # basic user functions - easy to use functions for beginners
 # ---------------------
+# if we have these functions then i can just get rid of the ``go'' class
 def go(speed,angle=0):
-    pass
+	return
+
 def stop():
-    pass
+	return
+
 def gofor(timems,speed):
-    pass
+	return
+
 def turn(angle):
-    pass
-# will call 'function' with the arguments in 'args' after 'timems' miliseconds
-def timed(timems,function,*args):
-    pass
-# returns a float in degrees
-def compass():
-    pass
-# returns a float distance from any IR sensor in cm
-# 'IR' is the sensor pin (or id number)
-def distance(IR):
-    pass
+	# what about radius?
+	return
+
+ON = 1, OFF = 0
+
+def light(state, time):
+	if state == 1:
+		return
+	else: # state == 0
+		return
+
+def blink(time):
+	# blinking the light on the arduino
+	return
+
+def display(text):
+	# displaying text on the LCD
+	return
+
+def delayRun(timems,function,*args):
+	# will call `function' with the arguments in `args' after `timems' milliseconds
+	return
+
+def getDirection():
+	# returns a float in degrees
+	return
+
+def getDistance(IR):
+	# returns a float distance from any IR censor in cm
+	# `IR' isi the sensor pin (or id number)
+	return
 # ---------------------
 
 # internal functions - user will not need to use these functions directly
 # ---------------------
 
-# cycles through usb drivers till arduino is found
 def _find_arduino(dev = '/dev/ttyUSB',start=0,stop=2):
+	# cycles through usb drivers until arduino is found
     for i in range(start,stop+1):
         try:
             serial = dev+str(i)
