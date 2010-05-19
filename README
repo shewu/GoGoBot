@@ -39,5 +39,28 @@ float getDirection():
 
 float getDistance(IR):
 	gets distance between GoGoBot and object from the <IR>th IR sensor in cm as a float
+	
+
+---------------------------
+ * Using a monitor *
+
+simply plug VGA cable into port to gain terminal.  also attach a keyboard and an optional mouse
+it is likely that the terminal is occupied by the gogobot start script, so press ctrl+alt+F(#) to get another terminal
+
+login:  danabo
+password:  qn4h7uz
+$ su
+password:  robotics
+# ...
+
+logging in with root directly will cause another instance of the start script to run
+log into danabo to bypass this
+
+to get GUI:
+# startx
+
+all gogobot related scripts are under /root/gogobot/
+the arduino environment is under /root/arduinoXXX/
+additional files, installers, and drivers may be under /root/Downloads/
 
 
